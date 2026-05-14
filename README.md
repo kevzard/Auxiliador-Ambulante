@@ -1,2 +1,2 @@
 # Auxiliador-Ambulante
-Desenvolvimento de um Sistema Gerenciador/Facilitador de Vendas para Vendedores Autônomos
+Desenvolvimento de um Aplicativo Gerenciador de Cargas e Cashback para Vendedores e Empreendedores Autônomos
