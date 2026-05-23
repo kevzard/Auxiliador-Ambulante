@@ -1,0 +1,12 @@
+@startuml
+left to right direction
+:Vendedor: as ven
+package Aplicativo {
+(Cadastro de clientes) as cads
+(Venda de produtos) as venda
+(Recarga da carteirinha) as rec
+ven --> cads
+ven --> venda
+ven --> rec
+}
+@enduml
