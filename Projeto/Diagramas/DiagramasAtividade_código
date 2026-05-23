@@ -1,0 +1,71 @@
+@startuml
+partition "Cadastro de clientes" {
+    start
+    :Tela inicial (lista de clientes);
+    switch (Novo cliente?)
+        case (Sim)
+            :Cadastra cliente;
+            :Digitar o nome;
+            :Registrar na lista;
+            stop
+        case (Não)
+            stop
+    endswitch
+}
+
+partition "Venda de produtos" {
+    start
+    :Tela inicial (lista de clientes);
+    if (Novo cliente?) then (  Sim  )
+        stop
+        else (Não)
+            if (Venda ou Recarga?) then (Venda)
+                :Realizar venda;
+                switch (Continuar?)
+                    case (Sim)
+                        :Selecionar produtos;
+                        :Pagamento;
+                        switch (Continuar?)
+                            case (Sim)
+                                :Debitar da carteira;
+                                :Finalizar venda;
+                                stop
+                            case (Não)
+                                :Cancelar operação;
+                                stop
+                        endswitch
+                    case (Não)
+                        :Cancelar operação;
+                        stop
+                endswitch
+            else (  Recarga  )
+                stop
+            endif
+    endif
+}
+
+partition "Recarga da carteirinha" {
+    start
+    :Tela inicial (lista de clientes);
+    if (Novo cliente?) then (  Sim  )
+        stop
+        else (Não)
+            if (Venda ou Recarga?) then (  Venda  )
+                stop
+                else (Recarga)
+                    :Recarregar carteirinha;
+                    :Inserir quantidade;
+                    :Finalizar pedido;
+                    switch (Aguardar o recebimento)
+                        case (Pix)
+                            :Mostrar QR Code;
+                            :Confirmar manualmente;
+                            stop
+                        case (Cartão ou Dinheiro)
+                            :Aguardar confirmação manual;
+                            stop
+                    endswitch
+            endif
+    endif
+}
+@enduml
