@@ -152,14 +152,14 @@ def main(page: ft.Page):
         acoes = ft.Row(
             [
                 ft.Button(
-                    "Realizar venda",
+                    "Vender",
                     bgcolor=VERDE,
                     color="white",
                     on_click=lambda e, c=cliente: mostrar_tela_venda(c),
                     expand=1,
                 ),
                 ft.Button(
-                    "Recarregar carteira",
+                    "Recarregar",
                     bgcolor=CIANO,
                     color="white",
                     on_click=lambda e, c=cliente: abrir_modal_recarga(c),

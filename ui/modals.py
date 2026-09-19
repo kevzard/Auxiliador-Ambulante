@@ -23,7 +23,7 @@ from ui.theme import AZUL, CIANO, CINZA_TEXTO, VERDE, VERMELHO, formatar_reais
 def criar_modal_novo_cliente(
     page: ft.Page, on_confirmar: Callable[[str], None]
 ) -> tuple[ft.AlertDialog, Callable[[], None]]:
-    campo_nome = ft.TextField(label="Nome do cliente", max_length=60, autofocus=True)
+    campo_nome = ft.TextField(label="Nome", max_length=60, autofocus=True)
 
     def fechar(e=None):
         page.pop_dialog()
@@ -60,7 +60,7 @@ def criar_modal_recarga(
     cliente_atual = {"id": None}
     texto_nome = ft.Text(size=16, weight=ft.FontWeight.W_500)
     campo_valor = ft.TextField(
-        label="Qual o valor da recarga?",
+        label="Valor",
         prefix="R$ ",
         keyboard_type=ft.KeyboardType.NUMBER,
         autofocus=True,
@@ -105,7 +105,7 @@ def criar_modal_editar_cliente(
     """`on_confirmar(cliente_id, novo_nome)`. `abrir(cliente)` já vem com
     o campo preenchido com o nome atual, pronto para corrigir."""
     cliente_atual = {"id": None}
-    campo_nome = ft.TextField(label="Nome do cliente", max_length=60, autofocus=True)
+    campo_nome = ft.TextField(label="Novo nome", max_length=60, autofocus=True)
 
     def fechar(e=None):
         page.pop_dialog()
@@ -120,7 +120,7 @@ def criar_modal_editar_cliente(
 
     dialog = ft.AlertDialog(
         modal=True,
-        title=ft.Text("Editar cliente"),
+        title=ft.Text("Editar"),
         content=campo_nome,
         actions=[
             ft.TextButton("Cancelar", on_click=fechar),
@@ -154,11 +154,11 @@ def criar_modal_confirmar_exclusao_cliente(
 
     dialog = ft.AlertDialog(
         modal=True,
-        title=ft.Text("Excluir cliente?"),
+        title=ft.Text("Excluir"),
         content=texto_mensagem,
         actions=[
             ft.TextButton("Cancelar", on_click=fechar),
-            ft.FilledButton("Sim, excluir", bgcolor=VERMELHO, color="white", on_click=confirmar),
+            ft.FilledButton("Sim", bgcolor=VERMELHO, color="white", on_click=confirmar),
         ],
     )
 
@@ -189,7 +189,7 @@ def criar_modal_novo_produto(
     pasta img/ pode ganhar arquivos novos entre uma abertura do modal e
     outra — assim ela é relida toda vez que o modal abre.
     """
-    campo_nome = ft.TextField(label="Nome do produto", max_length=60, autofocus=True)
+    campo_nome = ft.TextField(label="Nome", max_length=60, autofocus=True)
     campo_preco = ft.TextField(
         label="Preço", prefix="R$ ", keyboard_type=ft.KeyboardType.NUMBER
     )
@@ -255,7 +255,7 @@ def criar_modal_editar_produto(
     """`on_confirmar(produto_id, nome, preco, imagem)`. `abrir(produto)`
     já vem com nome, preço e imagem atuais preenchidos."""
     produto_atual = {"id": None}
-    campo_nome = ft.TextField(label="Nome do produto", max_length=60, autofocus=True)
+    campo_nome = ft.TextField(label="Nome", max_length=60, autofocus=True)
     campo_preco = ft.TextField(
         label="Preço", prefix="R$ ", keyboard_type=ft.KeyboardType.NUMBER
     )
@@ -288,7 +288,7 @@ def criar_modal_editar_produto(
 
     dialog = ft.AlertDialog(
         modal=True,
-        title=ft.Text("Editar produto"),
+        title=ft.Text("Editar"),
         content=ft.Column(
             [campo_nome, campo_preco, ft.Text("Escolha uma imagem", size=12, color=CINZA_TEXTO), area_seletor],
             tight=True,
@@ -330,11 +330,11 @@ def criar_modal_confirmar_exclusao_produto(
 
     dialog = ft.AlertDialog(
         modal=True,
-        title=ft.Text("Excluir produto?"),
+        title=ft.Text("Excluir"),
         content=texto_mensagem,
         actions=[
             ft.TextButton("Cancelar", on_click=fechar),
-            ft.FilledButton("Sim, excluir", bgcolor=VERMELHO, color="white", on_click=confirmar),
+            ft.FilledButton("Sim", bgcolor=VERMELHO, color="white", on_click=confirmar),
         ],
     )
 
@@ -432,11 +432,11 @@ def criar_modal_confirmar_cancelamento(
 
     dialog = ft.AlertDialog(
         modal=True,
-        title=ft.Text("Cancelar venda?"),
+        title=ft.Text("Cancelar"),
         content=ft.Text("Os itens selecionados serão perdidos. Deseja mesmo cancelar?"),
         actions=[
             ft.TextButton("Voltar", on_click=fechar),
-            ft.FilledButton("Sim, cancelar", bgcolor=VERMELHO, color="white", on_click=confirmar),
+            ft.FilledButton("Sim", bgcolor=VERMELHO, color="white", on_click=confirmar),
         ],
     )
 

@@ -54,7 +54,7 @@ def montar_tela_venda(
         runs_count=2,
         spacing=12,
         run_spacing=12,
-        child_aspect_ratio=0.68,
+        child_aspect_ratio=0.7,
         expand=True,
         padding=ft.Padding.only(left=16, right=16, top=16, bottom=16),
     )

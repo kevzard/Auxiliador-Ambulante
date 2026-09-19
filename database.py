@@ -53,28 +53,28 @@ def init_db() -> None:
     conn.commit()
 
     # --- Clientes padrão (só na primeira execução) ---
-    cursor.execute("SELECT COUNT(*) FROM clientes")
-    if cursor.fetchone()[0] == 0:
-        clientes_padrao = [
-            ("Rodrigo Bentini", 100.00),
-            ("Ana Monteiro", 50.00),
-            ("João Amorim", 23.00),
-        ]
-        cursor.executemany(
-            "INSERT INTO clientes (nome, saldo) VALUES (?, ?)", clientes_padrao
-        )
+    #cursor.execute("SELECT COUNT(*) FROM clientes")
+    #if cursor.fetchone()[0] == 0:
+    #    clientes_padrao = [
+    #        ("Rodrigo Bentini", 100.00),
+    #        ("Ana Monteiro", 50.00),
+    #        ("João Amorim", 23.00),
+    #    ]
+    #    cursor.executemany(
+    #        "INSERT INTO clientes (nome, saldo) VALUES (?, ?)", clientes_padrao
+    #    )
 
     # --- Produtos padrão (só na primeira execução) ---
     cursor.execute("SELECT COUNT(*) FROM produtos")
     if cursor.fetchone()[0] == 0:
         produtos_padrao = [
-            ("Paçoca", 1.00, "pacoca.png"),
-            ("Pé de Moça", 3.00, "pe-de-moca.png"),
-            ("Amendoim Salgado", 3.00, "amendoim-salgado.png"),
-            ("Balas Fini", 2.50, "balas-fini.png"),
-            ("Balas Freegells", 2.00, "balas-freegells.png"),
-            ("Balas Mentos", 2.50, "balas-mentos.png"),
-            ("Chicletes Mentos", 3.50, "chicletes-mentos.png"),
+            ("PAÇOCA", 1.00, "paçoca.png"),
+            ("PÉ DE MOÇA", 3.00, "pé de moça.png"),
+            ("AMENDOIM SALGADO", 3.00, "amendoim.png"),
+            ("BALAS FINI", 2.50, "balas.png"),
+            ("BALAS FREEGELLS", 2.00, "balas.png"),
+            ("BALAS MENTOS", 2.50, "balas.png"),
+            ("CHICLETES MENTOS", 3.50, "chiclete.png"),
         ]
         cursor.executemany(
             "INSERT INTO produtos (nome, preco, imagem) VALUES (?, ?, ?)",

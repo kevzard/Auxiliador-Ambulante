@@ -20,8 +20,8 @@ def criar_botao_qtd(icone: str, on_click: Callable) -> ft.Container:
     """Botãozinho circular escuro usado para +/- quantidade nos produtos."""
     return ft.Container(
         content=ft.Icon(icone, color="white", size=18),
-        width=36,
-        height=36,
+        width=32,
+        height=32,
         border_radius=ft.BorderRadius.all(18),
         bgcolor="#222222",
         alignment=ft.Alignment.CENTER,
@@ -46,14 +46,14 @@ def criar_card_cliente(
             ft.Row(
                 [
                     ft.Button(
-                        "Realizar venda",
+                        "Vender",
                         bgcolor=VERDE,
                         color="white",
                         on_click=lambda e: ao_realizar_venda(cliente),
                         expand=1,
                     ),
                     ft.Button(
-                        "Recarregar carteira",
+                        "Recarregar",
                         bgcolor=CIANO,
                         color="white",
                         on_click=lambda e: ao_recarregar(cliente),
