@@ -29,7 +29,7 @@ from views.tela_venda import montar_tela_venda
 
 
 def main(page: ft.Page):
-    page.title = "Vendaaz"
+    page.title = "Vendas"
     page.padding = 0
     page.bgcolor = "#F5F5F5"
     page.theme_mode = ft.ThemeMode.LIGHT
